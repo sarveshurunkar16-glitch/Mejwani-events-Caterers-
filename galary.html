@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejwani Events & Catering | Pure Veg Food Gallery</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary: #e65100;
+            --secondary: #ff9800;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --cream: #FFFDD0;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER STYLES --- */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-logos img {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            font-size: 2.8rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header h1 i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            transition: var(--transition);
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 81, 0, 0.4);
+        }
+
+        nav a i {
+            margin-right: 8px;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin: 40px 0 25px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-title i {
+            color: var(--primary);
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* --- FOOD CARD --- */
+        .food-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(230, 81, 0, 0.2);
+        }
+
+        .card-image {
+            height: 220px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .food-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .food-name {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .food-name h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .food-name span {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- FOOD TAGS --- */
+        .food-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-logos img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* --- ANIMATION --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .food-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="logo-container">
+            <!-- Chef Logo (Left) -->
+            <div class="header-logos">
+                <img src="chef logo.jpg" alt="Chef Logo">
+            </div>
+            
+            <div>
+                <h1><i class="fas fa-utensils"></i> Mejwani Events & Catering</h1>
+                <nav>
+                    <a href="Mejwani Events & Caterers.html"><i class="fas fa-calendar-check"></i> Home</a>
+                </nav>
+            </div>
+            
+            <!-- Jain Logo (Right) -->
+            <div class="header-logos">
+                <img src="jain logo.jpg" alt="Jain Logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- FOOD GALLERY -->
+    <div class="gallery-section">
+
+        <!-- Maharashtrian Section - 6 Pure Veg Dishes -->
+        <h2 class="category-title"><i class="fas fa-pepper-hot"></i> Maharashtrian Delights</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pav Bhaji">
+                </div>
+                <div class="food-name">
+                    <h3>Pav Bhaji</h3>
+                    <span>Spiced Mixed Veg Curry</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ-Afc4vNgFBg1AWVkMm2Kz7JicGIw2pmoab-Up1-ifw&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Puran Poli">
+                </div>
+                <div class="food-name">
+                    <h3>Puran Poli</h3>
+                    <span>Sweet Lentil Stuffed Flatbread</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyC6TDqSPQBFZHiB6VLmOsWJinpTYVIxmPcNxx2-cG3g&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vada Pav">
+                </div>
+                <div class="food-name">
+                    <h3>Misal Pav</h3>
+                    <span>Spicy Sprouts Curry</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREptnurZiTaomOolIqpN9qq-2pgOdISUGBH1ir9Hoz6A&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sabudana Khichdi">
+                </div>
+                <div class="food-name">
+                    <h3>Sabudana Khichdi</h3>
+                    <span>Tapioca Pearl Pilaf</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjUbSQrav8JzBAACt5RllHRzatEjSJZnpEJ1srNeN9Tw&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bharli Vangi">
+                </div>
+                <div class="food-name">
+                    <h3>Bharli Vangi</h3>
+                    <span>Stuffed Brinjal Curry</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Maharashtrian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyrhi9UV6PDNCWv7HL6LUwazXVBCcVi03O3OmwXf6yg&s&ec=121584908 ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kothimbir Vadi">
+                </div>
+                <div class="food-name">
+                    <h3>Kothimbir Vadi</h3>
+                    <span>Coriander Steamed Fritters</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- South Indian Section - 6 Pure Veg Dishes -->
+        <h2 class="category-title"><i class="fas fa-pepper-hot"></i> South Indian Specials</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Masala Dosa">
+                </div>
+                <div class="food-name">
+                    <h3>Masala Dosa</h3>
+                    <span>Crispy Crepe with Potato Masala</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1630383249896-424e482df921?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Idli Sambar">
+                </div>
+                <div class="food-name">
+                    <h3>Idli Sambar</h3>
+                    <span>Steamed Rice Cakes with Lentil Soup</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRSutV8op5nuJv4tzrjbS1KGNN1-z_9ergxdLMkq5mTQ&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Uttapam">
+                </div>
+                <div class="food-name">
+                    <h3>Onion Uttapam</h3>
+                    <span>Thick Pancake with Veggie Toppings</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2016/07/ven-pongal-recipe-2.jpg?w=1200&ssl=1ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pongal">
+                </div>
+                <div class="food-name">
+                    <h3>Veg Pongal</h3>
+                    <span>Rice & Lentil Khichdi</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpWQEnBfWQhgl06x3cjhojf3HRh6uUEVpF3GnPznDzfQ&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Medu Vada">
+                </div>
+                <div class="food-name">
+                    <h3>Medu Vada</h3>
+                    <span>Crispy Lentil Donuts</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">South Indian</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeJ7W05yHL5i6599LFhsYW8to-EWDIbZsA8acHkyUvQw&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rava Dosa">
+                </div>
+                <div class="food-name">
+                    <h3>Rava Dosa</h3>
+                    <span>Crispy Semolina Crepe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Punjabi Section - 6 Pure Veg Dishes -->
+        <h2 class="category-title"><i class="fas fa-pepper-hot"></i> Punjabi Temptations</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <span class="food-tag">Punjabi</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw2N8tilacZmZmGN2Et4We-WCE7XOveT7KXy-E7hudw&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Paneer Butter Masala">
+                </div>
+                <div class="food-name">
+                    <h3>Paneer Butter Masala</h3>
+                    <span>Cottage Cheese in Creamy Tomato Gravy</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Punjabi</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXfCkkuQ8cADhZdy9ygxRsORuEpuN6hc4NOOhLOzZidg&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sarson Da Saag">
+                </div>
+                <div class="food-name">
+                    <h3>Sarson Da Saag</h3>
+                    <span>Mustard Greens with Makki ki Roti</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Punjabi</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyzHmgzBsocvg5zkCMhQBZRqes7vrDe_3EbBLCC_3RDQ&s&ec=121584908 ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Paneer Tikka">
+                </div>
+                <div class="food-name">
+                    <h3>Paneer Tikka</h3>
+                    <span>Grilled Marinated Cottage Cheese</span>
+                </div>
+            </div>
+            <div class="food-card">
+                <span class="food-tag">Punjabi</span>
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47Mw-G6_QPmVmb0e7C1mOgVF_qc0vmSz4W59ArR25cw&s&ec=121584908ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dal Makhani">
+                </div>
+                <div class="food-name">
+                    <h3>Dal Makhani</h3>
+                    <span>Slow Cooked Black Lentils</span>
+                </div>
+            </div>

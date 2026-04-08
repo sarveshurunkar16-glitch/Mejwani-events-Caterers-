@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejwani Events & Catering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+        .section {
+            margin-bottom: 50px;
+            background-color: rgba(139, 69, 19, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        .book-now {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #218838, #17a2b8);
+            transform: scale(1.05);
+        }
+        /* Email Button Style */
+        .email-btn {
+            background: linear-gradient(45deg, #EA4335, #FBBC05);
+        }
+        .email-btn:hover {
+            background: linear-gradient(45deg, #c5221f, #eab000);
+        }
+        /* WhatsApp Button Style */
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+        }
+        .whatsapp-btn:hover {
+            background: linear-gradient(45deg, #1da851, #0c6056);
+        }
+        form {
+            display: none;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            text-align: center;
+            margin: 10px;
+        }
+        .contact-item i {
+            font-size: 2em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .event-box {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            min-width: 250px;
+        }
+        .event-box i {
+            font-size: 3em;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        .event-box h3 {
+            margin: 10px 0;
+            color: #fff;
+        }
+        .social-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-link {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        .contact-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .event-box { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+<img src="chef logo.jpg" width="120" height="120" align="left" style="border: 2px solid #FFFDD0; border-radius: 10px;">
+
+<img src="jain logo.jpg" width="120" height="120" align="right" style="border: 2px solid #FFFDD0; border-radius: 10px;">
+
+        <h1><i class="fas fa-utensils"></i> Mejwani Events & Catering</h1>
+<br>
+        <nav>
+            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#events"><i class="fas fa-calendar-check"></i> Events</a>
+            <a href="#book-now"><i class="fas fa-check"></i> Book Now</a>
+            <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+<a href="#gallery"><i class="fas fa-image"></i> Gallery</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="section" id="about">
+            <h2><i class="fas fa-building"></i> About Us</h2>
+            <p>Welcome to Mejwani Events & Catering, your premier destination for pure veg community events, workshops, and gatherings. As a dedicated pure veg center, we specialize in vegetarian and vegan-friendly spaces for learning, connecting, and celebrating. Located in the heart of Nandani, Shirol Road, Taluka Shirol, District Kolhapur, we offer a vibrant, wholesome environment with top-notch facilities tailored to your needs. Whether you're planning a family event, a corporate meeting, or a cultural program, Mejwani Events & Catering ensures a memorable experience with pure veg catering and ambiance.</p>
+            <p><strong>All programs accepted, featuring our expert pure veg chef!</strong> We cater to every type of event with delicious, wholesome vegetarian cuisine prepared by our skilled chef, ensuring a delightful experience for all guests.</p>
+        </div>
+        
+        <!-- New Events Section -->
+        <div class="section" id="events">
+            <h2><i class="fas fa-clipboard-list"></i> We Accept Following Events</h2>
+            <div class="events-container">
+                <div class="event-box">
+                    <i class="fas fa-ring"></i>
+                    <h3>Wedding and Engagement</h3>
+                    <p>Beautiful pure veg weddingand Engagement arrangements with expert catering and elegant decorations for your special day.</p>
+                </div>
+                <div class="event-box">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h3>All Parties</h3>
+                    <p>Birthday parties, anniversary celebrations, and all special occasions with delicious vegetarian menu.</p>
+                </div>
+                <div class="event-box">
+                    <i class="fas fa-users"></i>
+                    <h3>Family Function</h3>
+                    <p>Family gatherings, religious functions, and traditional events with wholesome pure veg cuisine.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="book-now">
+            <h2><i class="fas fa-calendar-alt"></i> Book Now</h2>
+            <p>Ready to reserve your spot? Click the button below to book your event or service.</p>
+            <div class="book-now">
+                <button onclick="showForm()"><i class="fas fa-check"></i> Book Now</button>
+            </div>
+            <form id="bookingForm" onsubmit="sendMessage(event)">
+                <input type="text" id="name" placeholder="Your Full Name" required>
+		<input type="tel" id="phone" placeholder="Your Phone No." required>
+                <input type="text" id="address" placeholder="Your Address" required>
+		<input type="text" id="address" placeholder="Place of Function" required>
+		<input type="text" id="No.of guests" placeholder="No.of guests" required>
+                 Enter Date of Function<input type="date" id="date" required>
+                 Enter Time of Function<input type="time" id="time" required>
+                <select id="eventType" required> 
+                  <option value="">Click here to Select Event</option>       
+            	    <option value="Wedding">Wedding</option>
+		    <option value="Engagement">Engagement</option>
+                    <option value="all parties">all parties</option>
+                    <option value="Corporate Meeting">Corporate Meeting</option>
+                    <option value="Cultural Program">Cultural Program</option>
+                    <option value="Family Function">Family Function</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <select id="foodType" required>
+                    <option value="">Click here to Select Food Type</option>
+                    <option value="Maharashtiyan">Maharashtiyan</option>
+                    <option value="Punjabiyan">Punjabiyan</option>
+                    <option value="South Indian">South Indian</option>
+                    <option value="Other">Other</option>
+                </select>
+		
+<p>Say Menu,Any Special requests enter in this Box:</p>
+		
+		
+              <textarea id="message" placeholder="Additional Details" required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Submit Booking</button>
+            </form>
+        </div>
+
+
+<div class="section" id="gallery">
+    <h2><i class="fas fa-image"></i> Gallery</h2>
+<p>See our photos & vidoes related events & caterers click the botton</p>
+
+<center><a href="galary.html"><button class="gallery-btn" onclick="opengalary()">	
+<i class="fas fa-image"> gallery </i></button></a></center>
+
+</div>
+
+        <div class="section" id="contact">
+            <h2><i class="fas fa-address-book"></i> Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p><strong>Address:</strong><br>Nandani, Shirol Road,<br>Taluka Shirol, District Kolhapur <br>Pin code:-416 102</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <p><strong>Owner:</strong><br>Vidhyasagar Benichetage</p>
+                </div>
+            </div>
+            <!-- Quick Contact Buttons -->
+            <div class="social-buttons">
+                <p><strong>Contact Us Directly</strong></p>
+                <div>
+               <!-- Send Email Button - Opens Google Gmail -->
+         <a href="mailto:vidyasagarb1008@gmail.com" class="contact-link"><button class="email-btn">
+	<iclass="fas fa-envelope"</i>Send Email</button></a>
+		</div>
+<br>
+                <div> 
+		<!-- Phone Button -->
+<a href="tel:9657189914" class="contact-link"><button class="Phone-btn" onclick="openPhone() ">
+		<i class="fab fa-Phone"></i> 
+		Phone
+		</button></a>
+		</div>
+
+                
+<br>
+		<div>
+                <!-- Instagram Button -->
+                <button style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);" onclick="window.open('https://www.instagram.com/chef_vidyasagar_/', '_blank')">
+                    <i class="fab fa-instagram"></i> Instagram
+                </button>
+		</div>
+<br>
+		<div>
+		<!-- WhatsApp Button -->
+		<button class="whatsapp-btn" onclick="openWhatsApp()">
+		<i class="fab fa-whatsapp"></i> WhatsApp 
+                </button>
+		</div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">For inquiries, feel free to reach out to us directly.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Mejwani Events & Catering. All rights reserved. | Designed for Excellence</p>
+    </footer>
+
+    <script>
+        // Function to open Google Gmail with compose window
+        function openGmail() {
+            const email = 'vidyasagarb1008@gmail.com';
+            const subject = 'Enquiry about Events & Catering';
+            const body = 'Hello,\n\nI am interested in your event and catering services. Please provide details about:\n\n- Event Type:\n- Date:\n- Number of Guests:\n- Food Preferences:\n\nThank you!';
+            
+            // Opens Gmail compose window
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
+        }
+        
+        // Function to open WhatsApp
+        function openWhatsApp() {
+            const phone = '919657189914';
+            const message = 'Hello, I am interested in your event and catering services. Please provide details.';
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        
+        function showForm() {
+            const form = document.getElementById('bookingForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+
+
+        // Function to open galary
+        function opengalary() {
+            
+            const galaryUrl = `https://ga.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(galarUrl, '_blank');
+        }
+
+
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const eventType = document.getElementById('eventType').value;
+            const foodType = document.getElementById('foodType').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the WhatsApp message with all details
+            const whatsappMessage = `New Booking Request:\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}\nEvent Type: ${eventType}\nFood Type: ${foodType}\nDetails: ${message}`;
+            
+            // Use correct WhatsApp API URL (wa.me)
+            const whatsappURL = `https://wa.me/919657189914?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp with pre-filled message
+            window.open(whatsappURL, '_blank');
+
+            // Reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingForm').style.display = 'none';
+
+            // Show confirmation alert
+            alert('Booking submitted! Opening WhatsApp to send the message to the owner.');
+        }
+    </script>
+</body>
+</html>      
